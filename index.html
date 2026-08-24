@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Name] — Engineering Portfolio</title>
+<style>
+  :root {
+    --bg: #0d1520;
+    --bg-panel: #131e2c;
+    --line: #22334a;
+    --text: #e8ecf1;
+    --text-dim: #8fa1b8;
+    --accent: #e0a458;
+    --accent-dim: #8a6a3d;
+    --mono: 'IBM Plex Mono', 'Consolas', monospace;
+    --sans: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    padding: 100px 0 70px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+  .role-line {
+    font-family: var(--mono);
+    font-size: 16px;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+  }
+  .hero-desc {
+    max-width: 560px;
+    color: var(--text-dim);
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+  .links a {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: 8px 16px;
+    margin-right: 12px;
+    display: inline-block;
+    margin-bottom: 8px;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- SECTION LABELS ---------- */
+  .section { padding: 70px 0; border-bottom: 1px solid var(--line); }
+  .section:last-of-type { border-bottom: none; }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 36px;
+  }
+  .section-label::before { content: "// "; color: var(--accent-dim); }
+
+  /* ---------- PROJECT CARDS ---------- */
+  .project {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    margin-bottom: 24px;
+  }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .project-title { font-size: 19px; font-weight: 700; }
+  .project-status {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    padding: 3px 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .project-body { padding: 24px; }
+  .project-media {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--bg);
+    border: 1px dashed var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 13px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 12px;
+  }
+  /* If you have a real image, replace the .project-media div with:
+     <img src="images/your-photo.jpg" style="width:100%; aspect-ratio:16/9; object-fit:cover; margin-bottom:20px;">
+     or an embedded video with a <video> tag / YouTube iframe.
+  */
+  .project-desc { color: var(--text-dim); font-size: 15px; margin-bottom: 20px; }
+  .spec-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 13px; }
+  .spec-table tr { border-top: 1px solid var(--line); }
+  .spec-table tr:first-child { border-top: none; }
+  .spec-table td { padding: 8px 0; }
+  .spec-table td:first-child { color: var(--text-dim); width: 160px; }
+  .spec-table td:last-child { color: var(--text); }
+
+  /* ---------- ABOUT ---------- */
+  .about-text { color: var(--text-dim); font-size: 16px; max-width: 640px; margin-bottom: 24px; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    max-width: 640px;
+  }
+  .skill-tag {
+    font-family: var(--mono);
+    font-size: 13px;
+    border: 1px solid var(--line);
+    padding: 10px 14px;
+    color: var(--text);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 40px 0 60px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 32px; }
+    header.hero { padding: 70px 0 50px; }
+    .section { padding: 50px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="eyebrow">Engineering Portfolio</div>
+    <h1>[Your Full Name]</h1>
+    <div class="role-line">Mechanical &amp; Electrical Engineering — Rutgers University–New Brunswick, Honors College</div>
+    <p class="hero-desc">
+      [Write 2–3 sentences here about who you are and what you build. Example:
+      I build hardware/software systems from the ground up — embedded firmware, control systems,
+      and the interfaces that run them. Currently studying Mechanical and Electrical Engineering
+      at Rutgers Honors College.]
+    </p>
+    <div class="links">
+      <a href="mailto:[your-email]@rutgers.edu">Email</a>
+      <a href="https://github.com/[your-username]">GitHub</a>
+      <a href="https://linkedin.com/in/[your-username]">LinkedIn</a>
+      <a href="[link-to-resume.pdf]">Resume</a>
+    </div>
+  </header>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="section">
+    <div class="section-label">Projects</div>
+
+    <!-- PROJECT 1: WiFi Turret -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">WiFi-Controlled Flywheel Turret</div>
+        <div class="project-status">Complete</div>
+      </div>
+      <div class="project-body">
+        <div class="project-media">
+          [Drop in a photo or GIF of the turret firing / the trajectory visualizer running]
+        </div>
+        <p class="project-desc">
+          [Expand this description with details/results — e.g. accuracy testing, what you learned,
+          challenges debugging the servo/motor timing, etc.]
+          A WiFi-controlled turret with servo-based aiming, built around an ESP32-S3. Includes live
+          ballistics estimation and a canvas-based trajectory visualizer served directly from the
+          microcontroller.
+        </p>
+        <table class="spec-table">
+          <tr><td>Platform</td><td>ESP32-S3</td></tr>
+          <tr><td>Hardware</td><td>PCA9685 servo driver, L298N motor driver, 3S LiPo</td></tr>
+          <tr><td>Firmware</td><td>Arduino / C++</td></tr>
+          <tr><td>Interface</td><td>Web-based control panel, canvas trajectory visualizer</td></tr>
+          <tr><td>Code</td><td><a href="https://github.com/[your-username]/[repo-name]" style="color:var(--accent)">github.com/[repo-name]</a></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: Quadcopter Drone -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Custom 3D-Printed Quadcopter</div>
+        <div class="project-status">Complete</div>
+      </div>
+      <div class="project-body">
+        <div class="project-media">
+          [Drop in a build photo or flight video/GIF]
+        </div>
+        <p class="project-desc">
+          [Expand with build details — frame design decisions, tuning process, first flight notes, etc.]
+          A 5-inch quadcopter with a custom 3D-printed frame, controlled by an ESP32-S3.
+        </p>
+        <table class="spec-table">
+          <tr><td>Platform</td><td>ESP32-S3</td></tr>
+          <tr><td>Frame</td><td>Custom 3D-printed, 5-inch</td></tr>
+          <tr><td>Firmware</td><td>[Betaflight / custom — specify]</td></tr>
+          <tr><td>Code</td><td><a href="https://github.com/[your-username]/[repo-name]" style="color:var(--accent)">github.com/[repo-name]</a></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: duplicate this block for the sword drone, IMU visualizer, sign-language glove, etc. -->
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">[Project Name]</div>
+        <div class="project-status">[In Progress / Complete]</div>
+      </div>
+      <div class="project-body">
+        <div class="project-media">
+          [Photo / video placeholder]
+        </div>
+        <p class="project-desc">
+          [Project description]
+        </p>
+        <table class="spec-table">
+          <tr><td>Platform</td><td>[e.g. ESP32-S3]</td></tr>
+          <tr><td>Stack</td><td>[key components / libraries]</td></tr>
+          <tr><td>Code</td><td><a href="#" style="color:var(--accent)">github.com/[repo-name]</a></td></tr>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section">
+    <div class="section-label">About</div>
+    <p class="about-text">
+      [Write a short paragraph about your background — coursework, leadership roles like Key Club,
+      what draws you to hardware/software engineering, what you're looking to do next.]
+    </p>
+    <div class="skills-grid">
+      <div class="skill-tag">C++</div>
+      <div class="skill-tag">Python</div>
+      <div class="skill-tag">Java</div>
+      <div class="skill-tag">Arduino / ESP32</div>
+      <div class="skill-tag">[Add more]</div>
+      <div class="skill-tag">[Add more]</div>
+    </div>
+  </section>
+
+  <footer>
+    [Your Name] · [your-email]@rutgers.edu · Built with GitHub Pages
+  </footer>
+
+</div>
+
+</body>
+</html>
