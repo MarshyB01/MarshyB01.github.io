@@ -119,7 +119,7 @@
   .project-body { padding: 24px; }
   .project-media {
     width: 100%;
-    aspect-ratio: 16/9;
+    height: auto;
     background: var(--bg);
     border: 1px dashed var(--line);
     display: flex;
@@ -209,7 +209,7 @@
       </div>
       <div class="project-body">
         <div class="project-media">
-          <img src="images/flywheelturret.jpg">
+          <img src="images/flywheelturret.jpg" style="width:100%; aspect-ratio:auto; object-fit:contain; margin-bottom:20px;">
         </div>
         <p class="project-desc">
           A WiFi-controlled turret with servo-based aiming, built around an ESP32-S3. 
