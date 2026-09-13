@@ -118,19 +118,33 @@
   }
   .project-body { padding: 24px; }
   .project-media {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--bg);
+  border: 1px dashed var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 12px;
+  object-fit: cover;
+  }
+  .project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+  }
+  .project-gallery img,
+  .project-gallery video {
     width: 100%;
-    height: auto;
-    background: var(--bg);
-    border: 1px dashed var(--line);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-dim);
-    font-family: var(--mono);
-    font-size: 13px;
-    margin-bottom: 20px;
-    text-align: center;
-    padding: 12px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border: 1px solid var(--line);
   }
   /* If you have a real image, replace the .project-media div with:
      <img src="images/your-photo.jpg" style="width:100%; aspect-ratio:16/9; object-fit:cover; margin-bottom:20px;">
