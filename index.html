@@ -133,7 +133,7 @@
   padding: 12px;
   object-fit: cover;
   }
-  
+
   .slideshow {
   position: relative;
   width: 100%;
@@ -242,12 +242,12 @@
         <div class="project-status">Complete</div>
       </div>
       <div class="project-body">
-        <div class="project-media">
-          <div class="project-gallery">
-            <img src="images/turret1.jpg" alt="Turret1">
-            <img src="images/turret2.jpg" alt="Turret2">
-            <img src="images/turret3.jpg" alt="Turret3">
-          </div>
+        <div class="slideshow">
+          <img class="slide active" src="images/turret1.jpg" alt="Turret1">
+          <img class="slide" src="images/turret2.jpg" alt="Turret2">
+          <img class="slide" src="images/turret3.jpg" alt="Turret3">
+          <button class="slideshow-arrow prev" onclick="changeSlide(this, -1)">‹</button>
+          <button class="slideshow-arrow next" onclick="changeSlide(this, 1)">›</button>
         </div>
         <p class="project-desc">
           A WiFi-controlled turret with servo-based aiming, built around an ESP32-S3. 
@@ -275,16 +275,15 @@
         <div class="project-status">Complete</div>
       </div>
       <div class="project-body">
-        <div class="project-media">
-          <div class="project-gallery">
-            <img src="images/drone1.jpg" alt="Drone1">
-            <img src="images/drone2.jpg" alt="Drone2">
-            <img src="images/drone3.jpg" alt="Drone3">
-            <img src="images/control1.jpg" alt="Controller1">
-            <img src="images/control2.jpg" alt="Controller2">
-            <img src="images/control3.jpg" alt="Controller3">
-            
-          </div>
+        <div class="slideshow">
+          <img class="slide active" src="images/drone1.jpg" alt="Drone1">
+          <img class="slide" src="images/drone2.jpg" alt="Drone2">
+          <img class="slide" src="images/drone3.jpg" alt="Drone3">
+          <img class="slide" src="images/control1.jpg" alt="Controller1">
+          <img class="slide" src="images/control2.jpg" alt="Controller2">
+          <img class="slide" src="images/control3.jpg" alt="Controller3">
+          <button class="slideshow-arrow prev" onclick="changeSlide(this, -1)">‹</button>
+          <button class="slideshow-arrow next" onclick="changeSlide(this, 1)">›</button>
         </div>
         <p class="project-desc">
           A custom-built 5-inch quadcopter with a 3D-printed frame, controlled through a purpose-built wireless transmitter. 
@@ -338,13 +337,13 @@
         <div class="project-status">Complete</div>
       </div>
       <div class="project-body">
-        <div class="project-media">
-          <div class="project-gallery">
-            <img src="images/firemaze.jpg" alt="Fire Maze Robot">
-            <img src="images/car1.jpg" alt="Car1">
-            <img src="images/car2.jpg" alt="Car2">
-            <img src="images/car3.jpg" alt="Car3">
-          </div>
+        <div class="slideshow">
+          <img class="slide active" src="images/firemaze.jpg" alt="Fire Maze Robot">
+          <img class="slide" src="images/car1.jpg" alt="Car1">
+          <img class="slide" src="images/car2.jpg" alt="Car2">
+          <img class="slide" src="images/car3.jpg" alt="Car3">
+          <button class="slideshow-arrow prev" onclick="changeSlide(this, -1)">‹</button>
+          <button class="slideshow-arrow next" onclick="changeSlide(this, 1)">›</button>
         </div>
         <p class="project-desc">
           An autonomous fire-extinguishing maze robot built during my time in Columbia University's
@@ -375,14 +374,13 @@
         <div class="project-status">Complete</div>
       </div>
       <div class="project-body">
-        <div class="project-media">
-          <div class="project-gallery">
-            <img src="images/sesame1.jpg" alt="Sesame1">
-            <img src="images/sesame2.jpg" alt="Sesame2">
-            <img src="images/sesame3.jpg" alt="Sesame3">
-            <img src="images/sesame4.jpg" alt="Sesame4">
-
-          </div>
+        <div class="slideshow">
+          <img class="slide active" src="images/sesame1.jpg" alt="Sesame1">
+          <img class="slide" src="images/sesame2.jpg" alt="Sesame2">
+          <img class="slide" src="images/sesame3.jpg" alt="Sesame3">
+          <img class="slide" src="images/sesame4.jpg" alt="Sesame4">
+          <button class="slideshow-arrow prev" onclick="changeSlide(this, -1)">‹</button>
+          <button class="slideshow-arrow next" onclick="changeSlide(this, 1)">›</button>
         </div>
         <p class="project-desc">
           A cat-inspired quadrupedal robot built as a fork of the existing Sesame robot project, which
@@ -413,12 +411,12 @@
         <div class="project-status">Complete</div>
       </div>
       <div class="project-body">
-        <div class="project-media">
-          <div class="project-gallery">
-            <img src="images/hex1.jpg" alt="Hexapod Disassembled1">
-            <img src="images/hex3.jpg" alt="Hexapod Disassembled2">
-            <img src="images/hexapod.jpg" alt="Hexapod">
-          </div>
+        <div class="slideshow">
+          <img class="slide active" src="images/hex1.jpg" alt="Hexapod Disassembled1">
+          <img class="slide" src="images/hex3.jpg" alt="Hexapod Disassembled2">
+          <img class="slide" src="images/hexapod.jpg" alt="Hexapod">
+          <button class="slideshow-arrow prev" onclick="changeSlide(this, -1)">‹</button>
+          <button class="slideshow-arrow next" onclick="changeSlide(this, 1)">›</button>
         </div>
         <p class="project-desc">
           A six-legged walking robot built to explore hexapedal locomotion and how a multi-legged
@@ -452,11 +450,11 @@
         <div class="project-status">Complete</div>
       </div>
       <div class="project-body">
-        <div class="project-media">
-          <div class="project-gallery">
-            <img src="images/signlang.jpg" alt="SignLanguage">
-            <img src="images/signlanggl.jpg" alt="Signlanguage2">
-          </div>
+        <div class="slideshow">
+          <img class="slide active" src="images/signlang.jpg" alt="SignLanguage">
+          <img class="slide" src="images/signlanggl.jpg" alt="Signlanguage2">
+          <button class="slideshow-arrow prev" onclick="changeSlide(this, -1)">‹</button>
+          <button class="slideshow-arrow next" onclick="changeSlide(this, 1)">›</button>
         </div>
         <p class="project-desc">
           One of my earliest projects and the one that first got me interested in building hardware,
@@ -489,7 +487,7 @@
       </div>
       <div class="project-body">
         <div class="project-media">
-          [Drop in a gameplay screenshot, GIF, or trailer]
+          <img class="project-media" src="images/andycalc.png" alt="Calculus History Platformer">
         </div>
         <p class="project-desc">
           A Foddian-style platformer built in Godot as a final project for a math class, designed to
@@ -546,7 +544,7 @@
       </div>
       <div class="project-body">
         <div class="project-media">
-          [Drop in a screenshot of the site]
+          <img class="project-media" src="images/flkiwanis.png" alt="Fort Lee Key Club and Kiwanis Website">
         </div>
         <p class="project-desc">
           One of my earliest experiences in web development, built during my term as Treasurer of my
@@ -572,7 +570,7 @@
       </div>
       <div class="project-body">
         <div class="project-media">
-          [Drop in a screenshot of the site]
+          <img class="project-media" src="images/njcoweb.png" alt="Renewable Energy Education Website">
         </div>
         <p class="project-desc">
           My first experience with web design, HTML, and CSS, built in collaboration with a colleague
