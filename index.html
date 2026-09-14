@@ -133,30 +133,50 @@
   padding: 12px;
   object-fit: cover;
   }
-  .project-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 8px;
+  
+  .slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
   margin-bottom: 20px;
+  background: var(--bg);
+  border: 1px solid var(--line);
   }
-  .project-gallery img,
-  .project-gallery video {
+  .slideshow .slide {
+    display: none;
     width: 100%;
-    aspect-ratio: 16/9;
+    height: 100%;
     object-fit: cover;
-    border: 1px solid var(--line);
   }
-  /* If you have a real image, replace the .project-media div with:
-     <img src="images/your-photo.jpg" style="width:100%; aspect-ratio:16/9; object-fit:cover; margin-bottom:20px;">
-     or an embedded video with a <video> tag / YouTube iframe.
-  */
-  .project-desc { color: var(--text-dim); font-size: 15px; margin-bottom: 20px; }
-  .spec-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 13px; }
-  .spec-table tr { border-top: 1px solid var(--line); }
-  .spec-table tr:first-child { border-top: none; }
-  .spec-table td { padding: 8px 0; }
-  .spec-table td:first-child { color: var(--text-dim); width: 160px; }
-  .spec-table td:last-child { color: var(--text); }
+  .slideshow .slide.active { display: block; }
+  .slideshow-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(13, 21, 32, 0.75);
+    color: var(--text);
+    border: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  .slideshow-arrow:hover { border-color: var(--accent); color: var(--accent); }
+  .slideshow-arrow.prev { left: 8px; }
+  .slideshow-arrow.next { right: 8px; }
+    .project-desc { color: var(--text-dim); font-size: 15px; margin-bottom: 20px; }
+    .spec-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 13px; }
+    .spec-table tr { border-top: 1px solid var(--line); }
+    .spec-table tr:first-child { border-top: none; }
+    .spec-table td { padding: 8px 0; }
+    .spec-table td:first-child { color: var(--text-dim); width: 160px; }
+    .spec-table td:last-child { color: var(--text); }
 
   /* ---------- ABOUT ---------- */
   .about-text { color: var(--text-dim); font-size: 16px; max-width: 640px; margin-bottom: 24px; }
@@ -225,7 +245,7 @@
         <div class="project-media">
           <div class="project-gallery">
             <img src="images/turret1.jpg" alt="Turret1">
-            <img src="images/turret2-walking.jpg" alt="Turret2">
+            <img src="images/turret2.jpg" alt="Turret2">
             <img src="images/turret3.jpg" alt="Turret3">
           </div>
         </div>
@@ -622,6 +642,15 @@
   </footer>
 
 </div>
-
+  <script>
+  function changeSlide(btn, direction) {
+    const container = btn.closest('.slideshow');
+    const slides = container.querySelectorAll('.slide');
+    let index = Array.from(slides).findIndex(s => s.classList.contains('active'));
+    slides[index].classList.remove('active');
+    index = (index + direction + slides.length) % slides.length;
+    slides[index].classList.add('active');
+  }
+  </script>
 </body>
 </html>
